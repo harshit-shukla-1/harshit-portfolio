@@ -2,156 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Data Engineer - Iron Man Theme Resume</title>
+  <title>Data Engineer - Arc Reactor Resume</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin:0; min-height:100vh;
+      margin: 0;
+      min-height: 100vh;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #0b2238 0%, #142e42 100%);
       color: #aee6ff;
-      position: relative;
+      background: radial-gradient(circle at center, #3cb0e7 0%, #102030 100%);
       overflow: hidden;
+      position: relative;
     }
-    /* Futuristic light blue grid background */
-    body::before {
-      content: "";
-      position: absolute; top:0; left:0; right:0; bottom:0;
-      background:
-        linear-gradient(to right, rgba(173,216,230,0.10) 2px, transparent 2px),
-        linear-gradient(to bottom, rgba(173,216,230,0.10) 2px, transparent 2px);
-      background-size: 40px 40px;
-      z-index:0;
-      pointer-events:none;
-      animation: gridmove 8s linear infinite alternate;
+    /* Arc Reactor Animated Background */
+    .arc-bg {
+      position: fixed;
+      top: 50%; left: 50%;
+      width: 540px; height: 540px;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
     }
-    @keyframes gridmove {
-      0% { background-position:0 0, 0 0; }
-      100% { background-position:20px 20px, 20px 20px; }
+    .arc-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      box-shadow: 0 0 65px 32px #40a8ff80, 0 0 35px 18px #e47676c0;
+      width: 90px; height: 90px;
+      background: radial-gradient(circle, #49eaff 90%, #ea4444 100%);
+      border: 6px solid #7bf8e2;
+      animation: corepulse 3s infinite alternate;
     }
-    /* Iron Man mask background - SVG overlay, softly animated */
-    .mask-bg {
-      position:absolute; top:50px; left:50%; transform:translateX(-50%);
-      width:400px; height:400px; opacity:0.2; z-index:1;
-      animation: maskpulse 6s ease-in-out infinite;
-      pointer-events:none;
+    @keyframes corepulse {
+      0% { box-shadow: 0 0 50px 10px #40a8ff80, 0 0 10px 2px #ea4444c0; }
+      100% { box-shadow: 0 0 80px 40px #eee0ffcc, 0 0 45px 22px #e5737360; }
     }
-    @keyframes maskpulse {
-      0%,100% { opacity:0.20;}
-      50% { opacity:0.35;}
+    .arc-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 8px solid #46e6ff;
+      box-shadow: 0 0 22px 4px #ea4444a0;
+      width: 210px; height: 210px;
+      background: transparent;
+      animation: ringspin 18s linear infinite;
+      opacity: 0.7;
     }
-    /* Profile image - circle avatar with blue glow */
+    .arc-ring2 {
+      border: 8px solid #ea4444;
+      width: 340px; height: 340px;
+      box-shadow: 0 0 32px 10px #56bbff80;
+      animation: ringspinRev 28s linear infinite;
+      opacity: 0.3;
+    }
+    .arc-ring3 {
+      border: 6px dashed #6cf3ff;
+      width: 495px; height: 495px;
+      box-shadow: 0 0 32px 24px #ff808060;
+      animation: ringspin 32s linear infinite;
+      opacity: 0.17;
+    }
+    @keyframes ringspin {
+      0% { transform: translate(-50%, -50%) rotate(0); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes ringspinRev {
+      0% { transform: translate(-50%, -50%) rotate(360deg); }
+      100% { transform: translate(-50%, -50%) rotate(0deg); }
+    }
+
+    /* Profile image style */
     .profile-img {
-      width:120px; height:120px;
-      border-radius:50%;
-      border:4px solid #78d1ff;
-      box-shadow:0 0 30px #00c9ff88;
-      object-fit:cover;
-      margin:0 auto 20px auto; display:block;
-      background:#142e42;
+      width: 120px; height:120px;
+      border-radius: 50%;
+      border: 4px solid #78d1ff;
+      box-shadow: 0 0 30px #00c9ff88, 0 0 40px #ea4444a0;
+      object-fit: cover;
+      background: #142e42;
+      margin: 0 auto 18px auto; display: block;
+      position: relative;
+      z-index: 2;
+      animation: img-glow 3.5s infinite alternate;
+    }
+    @keyframes img-glow {
+      0% { box-shadow: 0 0 30px #00a9ffb0, 0 0 15px #ea444440;}
+      100% { box-shadow: 0 0 50px #3cf0ffc0, 0 0 70px #ea444480;}
     }
     h1 {
-      text-align:center;
-      font-size:2.6rem;
-      font-weight:bold;
-      color:#78d1ff;
-      text-shadow: 0 0 14px #00b8e6, 0 0 35px #00b8e6;
-      margin-top:12px;
+      text-align: center;
+      font-size: 2.58rem;
+      font-weight: bold;
+      color: #7deeff;
+      text-shadow: 0 0 18px #ea4444, 0 0 36px #40a8ff;
+      margin-top: 10px;
+      z-index: 2;
+      position: relative;
     }
     .container {
-      position: relative;
-      z-index:3;
-      max-width:850px;
-      margin:64px auto;
-      padding:48px 24px 24px 24px;
-      background: rgba(16, 28, 40, 0.82);
-      border-radius:18px;
-      box-shadow:0 0 32px #2ec0fc44;
+      position: relative; z-index: 2;
+      max-width: 900px;
+      margin: 70px auto 0 auto;
+      padding: 48px 28px 24px 28px;
+      background: rgba(18,34,50,0.92);
+      border-radius: 18px;
+      box-shadow: 0 0 32px #5ed0ff44, 0 0 7px #ea4444a0;
     }
     .divider {
       height:2px; border:none;
-      background:linear-gradient(90deg, #40d1ff44,#00b8e666,#40d1ff44);
-      margin:24px 0;
+      background:linear-gradient(90deg,#40d1ff44,#ea444499,#40d1ff44);
+      margin: 22px 0;
     }
     .highlight {
-      background:linear-gradient(90deg,#45aaff33,#93f5ff10);
-      padding:4px 10px;
-      border-radius:8px;
-      box-shadow:0 0 8px #3ad3f8a0;
+      background:linear-gradient(90deg,#45aaff33,#ea444415);
+      padding: 4px 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #ea4444, 0 0 8px #45aaff80;
       color:#eafcff; font-weight:500;
-      animation: highlight-pulse 2.5s infinite alternate;
+      animation: highlight-pulse 2.6s infinite alternate;
     }
     @keyframes highlight-pulse {
-      0%{box-shadow:0 0 8px #2ec0fc88;}
-      100%{box-shadow:0 0 14px #88e6ff88;}
+      0%{box-shadow:0 0 8px #ea444440, 0 0 12px #40a8ff;}
+      100%{box-shadow:0 0 15px #ea444460, 0 0 7px #40a8ff;}
     }
     /* Project cards */
     .projects-row {
-      display:flex; flex-wrap:wrap; gap:24px; margin-top:18px; justify-content:center;
+      display: flex; flex-wrap: wrap;
+      gap: 24px; margin-top: 20px;
+      justify-content: center;
     }
     .proj-card {
-      background:rgba(12,33,58,0.82);
-      border-radius:14px; box-shadow:0 0 18px #60b3e640;
-      color:#aee6ff;
-      min-width:240px; width:310px; padding:18px;
-      margin-bottom:12px;
-      transition:box-shadow 0.5s;
-      border:2px solid #3ad3f878;
-      position:relative;
-      overflow:hidden;
-      animation:cardfloat 7s ease-in-out infinite; 
+      background: rgba(12,33,58,0.85);
+      border-radius: 14px;
+      box-shadow: 0 0 18px #40a8ff40, 0 0 7px #ea4444a0;
+      color: #aee6ff;
+      min-width: 240px; width: 310px; padding: 18px;
+      margin-bottom: 12px;
+      border: 2px solid #ea444466;
+      transition: box-shadow 0.5s, border 0.4s;
+      position:relative; overflow:hidden;
+      animation: cardfloat 7s ease-in-out infinite; 
     }
     .proj-card:hover {
-      box-shadow:0 0 28px #2ec0fc80;
+      box-shadow:0 0 28px #2ec0fc80, 0 0 28px #ea444480;
       border:2px solid #aee6ff;
     }
     @keyframes cardfloat {
       0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-10px);}
+      50%{transform:translateY(-12px);}
     }
     .proj-title {
-      font-weight:600;
-      color:#94e0ff;
-      font-size:1.28rem;
+      font-weight: 600;
+      color: #94e0ff;
+      font-size: 1.25rem;
       margin-bottom:8px;
-      text-shadow:0 0 8px #00c9ff40;
+      text-shadow: 0 0 8px #ea4444a0, 0 0 8px #00c9ff40;
     }
     .proj-desc {
-      font-size:1.04rem;
+      font-size: 1.04rem;
       margin:0;
     }
     /* Responsive */
     @media (max-width:700px){
-      .container{padding:12px 4px;}
-      h1{font-size:2rem;}
+      .container{padding:10px 2px;}
+      h1{font-size:1.8rem;}
       .projects-row{flex-direction:column;align-items:center;}
-      .mask-bg{width:220px;height:220px;}
+      .arc-bg { width:220px; height:220px; }
     }
   </style>
 </head>
 <body>
-  <!-- SVG Iron Man Mask as background element -->
-  <div class="mask-bg">
-    <svg viewBox="0 0 400 400" width="100%" height="100%">
-      <!-- simplified stylized mask -->
-      <ellipse cx="200" cy="170" rx="115" ry="145" fill="#89caff" opacity="0.15"/>
-      <ellipse cx="200" cy="170" rx="105" ry="135" fill="#1f3a59" opacity="0.50"/>
-      <!-- Eyes -->
-      <rect x="135" y="145" width="50" height="14" rx="8" fill="#aee6ff" opacity="0.8">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
-      </rect>
-      <rect x="215" y="145" width="50" height="14" rx="8" fill="#aee6ff" opacity="0.8">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
-      </rect>
-      <!-- Mask lines for effect -->
-      <path d="M155 220 Q200 270 245 220" stroke="#aee6ff" stroke-width="5" fill="none" opacity="0.2"/>
-      <path d="M110 200 Q200 340 290 200" stroke="#4ec8f8" stroke-width="6" fill="none" opacity="0.1"/>
-    </svg>
+  <!-- Arc Reactor Animated Background -->
+  <div class="arc-bg">
+    <div class="arc-ring arc-ring3"></div>
+    <div class="arc-ring arc-ring2"></div>
+    <div class="arc-ring arc-ring"></div>
+    <div class="arc-center"></div>
   </div>
   <div class="container">
     <!-- Profile Image -->
     <img class="profile-img" src="profile.jpg" alt="Profile Picture">  
-    <h1>Data Engineer - Inspired by Iron Man</h1>
+    <h1>Data Engineer - Powered by the Arc Reactor</h1>
     <hr class="divider">
     <span class="highlight">Data Engineer with 4+ years of experience</span> in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.
 
@@ -173,7 +205,7 @@
           Modernized infrastructure with Azure & Databricks for improved performance and scalability.
         </p>
       </div>
-      <!-- Add more project cards as needed; copy and edit above blocks -->
+      <!-- Add more project cards as needed. -->
     </div>
 
     <h2 style="color:#60b3e6;">Technical Strengths</h2>
@@ -185,7 +217,7 @@
       <li>Collaborative project delivery with strong documentation skills</li>
     </ul>
     <hr class="divider">
-    <p style="font-size:1.1rem;">This themed resume blends <span class="highlight">innovation and technology</span>—inspired by Iron Man's futuristic universe—to showcase my passion for solving data challenges and building next-generation analytics systems.</p>
+    <p style="font-size:1.1rem;">This themed resume blends <span class="highlight">innovation and technology</span>—inspired by Iron Man's arc reactor—to showcase my passion for solving data challenges and building next-generation analytics systems.</p>
   </div>
 </body>
 </html>

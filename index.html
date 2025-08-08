@@ -1,248 +1,204 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=devic e-width, initial-scale=1.0">
-  <title>Iron Man Themed Data Engineering Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harshit Shulka - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #101820;
+      --fg: #f4f8fb;
+      --accent: #31cafb;
+      --card-bg: #182535;
+      --border: #253342;
+      --radius: 18px;
+      --transition: 0.25s cubic-bezier(.8,.4,.3,1);
+    }
+    html, body {
+      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+      font-family: 'Inter', Arial, sans-serif;
+    }
     body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: linear-gradient(120deg, #242424 0%, #990000 100%);
-      color: #FFD700;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
-      position: relative;
+      min-height: 100vh; line-height: 1.62;
     }
-    /* Arc Reactor Animated Background */
-    .arc-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 2rem 1rem;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px #0d1a2f44;
+    }
+    .profile {
       display: flex;
+      gap: 2rem;
       align-items: center;
-      justify-content: center;
-      z-index: 0;
-      opacity: 0.15;
-      pointer-events: none;
+      flex-wrap: wrap;
     }
-    .reactor-outer {
-      width: 600px;
-      height: 600px;
+    .profile-img {
+      width: 130px; height: 130px;
       border-radius: 50%;
-      background: radial-gradient(circle at 50% 50%, #00ffe7 10%, #1a2226 60%, #111 100%);
-      box-shadow: 0 0 100px #00ffe7, 0 0 80px #1a2226 inset;
-      animation: spin 20s linear infinite;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+      transition: transform var(--transition);
     }
-    .reactor-inner {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 50% 50%, #00ffe7 30%, #242424 90%);
-      animation: pulse 2s infinite;
+    .profile-img:hover { transform: scale(1.05);}
+    .profile-info h1 {
+      margin: 0 0 0.5em 0;
+      font-size: 2.4rem;
+      font-weight: 700;
     }
-    @keyframes spin { 100% { transform: rotate(360deg);} }
-    @keyframes pulse {
-      0%,100% {box-shadow: 0 0 40px #00ffe7;}
-      50% {box-shadow: 0 0 80px #00ffe7;}
+    .socials {
+      display: flex; gap: 1.2em; margin-top: 0.8em;
     }
-    /* Header Stylings */
-    .ironman-title {
-      text-align: center;
-      font-size: 3rem;
-      font-weight: bold;
-      letter-spacing: 3px;
-      margin-top: 40px;
-      color: #FFD700;
-      text-shadow:
-        0 0 10px #C30010,
-        0 0 30px #FF5700,
-        0 0 80px #FFD700;
+    .socials a {
+      color: var(--accent);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color var(--transition);
     }
-    .ironman-desc {
-      text-align: center;
-      max-width: 600px;
-      margin: 32px auto;
-      font-size: 1.15rem;
-      background: rgba(34,34,34,0.7);
-      padding: 18px 22px;
-      border-radius: 14px;
-      border: 2px solid #FFD700;
-      box-shadow: 0 4px 24px #55050599;
+    .socials a:hover { color: #fff; }
+    section {
+      margin-top: 2.5em;
+      margin-bottom: 0.5em;
     }
-    /* Animated SVGs */
-    .ironman-visual {
-      display: flex;
-      justify-content: center;
-      margin-top: 24px;
-      margin-bottom: 16px;
-      z-index: 2;
-      position: relative;
-      pointer-events: none;
-      user-select: none;
+    h2 {
+      font-size: 1.35rem;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.8em;
+      margin-top: 0.2em;
     }
-    .helmet-glow {
-      filter: drop-shadow(0 0 20px #FFD700) drop-shadow(0 0 16px #FF5200);
-      animation: helmetshake 2.2s infinite;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.6em;
     }
-    @keyframes helmetshake {
-      0%, 100% { transform: translateX(0);}
-      20% { transform: translateX(-5px);}
-      40% { transform: translateX(5px);}
-      60% { transform: translateX(-5px);}
-      80% { transform: translateX(5px);}
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3em 1em;
+      box-shadow: 0 2px 8px #26324811;
+      transition: transform var(--transition), box-shadow var(--transition);
+      will-change: transform;
+      min-height: 110px;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
     }
-    .suit-pulse {
-      filter: drop-shadow(0 0 15px #FF1F00) drop-shadow(0 0 10px #00ffe7);
-      animation: suitupglow 1.6s infinite;
+    .card:hover {
+      transform: translateY(-7px) scale(1.02);
+      box-shadow: 0 8px 24px #31cafa55;
+      border-color: var(--accent);
     }
-    @keyframes suitupglow {
-      0%,100% { opacity: 1;}
-      50% { opacity: 0.65;}
+    .card-title {
+      font-size: 1.18rem;
+      font-weight: 600;
+      margin-bottom: 0.4em;
+      letter-spacing: 0.3px;
+      color: #fff;
     }
-    /* Simple Game Area */
-    #gameContainer {
-      position: relative;
-      margin: 40px auto 20px;
-      background: #1a222677;
-      border: 2px solid #FFD700;
-      border-radius: 18px;
-      max-width: 380px;
-      height: 340px;
-      overflow: hidden;
-      z-index: 1;
-      box-shadow: 0 4px 40px #FF570050;
-    }
-    .score-board {
-      color: #FFD700;
-      font-size: 1.25rem;
-      padding: 15px;
-      text-align: center;
-    }
-    /* Falling Arc Reactors */
-    .falling-reactor {
-      position: absolute;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 50% 50%, #00ffe7 55%, #1a2226 100%);
-      box-shadow: 0 0 20px #00ffe7, 0 0 10px #fff7;
-      border: 4px solid #FFD700;
-      z-index: 3;
-      animation: spin 2s linear infinite;
-      cursor: pointer;
-    }
-    .instructions {
-      color: #FFD700;
-      text-align: center;
+    .card .card-link {
+      margin-top: 1em;
+      color: var(--accent);
+      text-decoration: none;
       font-size: 1rem;
-      margin: 12px 0 0 0;
+      font-weight: 500;
+      transition: color var(--transition);
+      align-self: flex-start;
     }
-    /* Responsive */
-    @media (max-width: 600px) {
-      .ironman-title { font-size: 2rem;}
-      .ironman-desc { font-size: 1rem;}
-      .reactor-outer { width: 250px; height: 250px;}
-      .reactor-inner { width: 110px; height: 110px;}
-      #gameContainer { max-width: 98vw; }
+    .card .card-link:hover { text-decoration: underline; color: #fff;}
+    .skills-list {
+      display: flex; flex-wrap: wrap; gap: 1em;
+      list-style: none; padding: 0; margin: 0;
+    }
+    .skill {
+      background: var(--border);
+      color: var(--accent);
+      padding: 0.4em 1em;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      margin-bottom: 0.5em;
+      transition: background var(--transition), color var(--transition);
+    }
+    .skill:hover {
+      background: var(--accent);
+      color: #182535;
+    }
+    .contact-box {
+      background: #22304b;
+      border-radius: var(--radius);
+      padding: 1em 1.2em;
+      margin-top: 1em;
+      font-size: 1.18em;
+      color: #fff;
+    }
+    a, a:visited { color: var(--accent);}
+    @media (max-width: 700px) {
+      .container { padding: 1.1em;}
+      .profile { flex-direction: column; gap: 1em;}
+      .profile-img { width: 88px; height: 88px;}
+    }
+    @media (max-width: 520px) {
+      h1 { font-size: 2rem;}
+      .cards { grid-template-columns: 1fr;}
+      .skills-list { gap: 0.7em; font-size: 0.97em;}
     }
   </style>
 </head>
 <body>
-  <div class="arc-bg">
-    <div class="reactor-outer">
-      <div class="reactor-inner"></div>
+  <div class="container">
+    <div class="profile">
+      <img src="https://media.licdn.com/dms/image/v2/C5603AQHFgHpUgwf-zw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1590117397655?e=1756944000&v=beta&t=nnbJf6lceZnpJvSdXqRTkeXaO3mnRc9z18r3iXNfPJ4" alt="Harshit Shukla" class="profile-img" />
+      <div class="profile-info">
+        <h1>Harshit Shukla</h1>
+        <p>Data Engineer with 4+ years of experience in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.
+</p>
+        <div class="socials">
+          <a href="https://github.com/harshit-shukla-1" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank">LinkedIn</a>
+          <a href="mailto:starkjarvis1997@gmail.com">Email</a>
+        </div>
+      </div>
     </div>
+    <section>
+      <h2>Projects</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="card-title">Flipkart Data Analysis</span>
+          <p>This is the project where we are analysing the data of flipkart using databricks. I have also included the data here in the form of csv which I am analysing. </p>
+          <a class="card-link" href="https://github.com/harshit-shukla-1/flipkart-data-analysis" target="_blank">Flipkart Data Analysis</a>
+        </div>
+        <div class="card">
+          <span class="card-title">Apache Spark Analysis</span>
+          <p>This project is for analysing the spark commands and create notebooks for the basis of all data engineering projects. This includes all the sql related concepts too. </p>
+          <a class="card-link" href="https://github.com/harshit-shukla-1/apache-spark" target="_blank">Apache Spark Analysis</a>
+        </div>
+        <!-- Add more cards for projects as needed -->
+      </div>
+    </section>
+    <section>
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li class="skill">Python</li>
+        <li class="skill">SQL</li>
+        <li class="skill">Pyspark</li>
+        <li class="skill">Azure</li>
+        <li class="skill">Airflow</li>
+        <li class="skill">Databricks</li>
+        <li class="skill">Power BI</li>
+        <!-- Add more skills -->
+      </ul>
+    </section>
+    <section>
+      <h2>Contact</h2>
+      <div class="contact-box">
+        Prefer email? <a href="mailto:starkjarvis1997@gmail.com">Email me</a> — or reach out through <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank">LinkedIn</a>.
+      </div>
+    </section>
   </div>
-
-  <!-- Animated Iron Man helmet SVG -->
-  <div class="ironman-visual">
-    <svg class="helmet-glow" width="92" height="110" viewBox="0 0 92 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="46" cy="55" rx="44" ry="52" fill="#930400" stroke="#FFD700" stroke-width="4"/>
-      <path d="M16,36 Q46,12 76,36 L66,80 Q46,102 26,80Z" fill="#FFD700" stroke="#D4AF37" stroke-width="3"/>
-      <path d="M30,60 Q46,45 62,60 Q57,82 35,82Z" fill="#FFF" stroke="#FFD700" stroke-width="2"/>
-      <ellipse cx="33" cy="60" rx="6" ry="6" fill="#00ffe7" stroke="#212e37" stroke-width="1.5"/>
-      <ellipse cx="59" cy="60" rx="6" ry="6" fill="#00ffe7" stroke="#212e37" stroke-width="1.5"/>
-      <ellipse cx="46" cy="76" rx="9" ry="5" fill="#FFD700" />
-    </svg>
-  </div>
-
-  <h1 class="ironman-title">IRON MAN DATA LAB</h1>
-  <div class="ironman-desc">
-    Data Engineer with 4+ years of robust experience in PySpark, Databricks, and Azure, bringing the <strong>innovation of Stark Industries</strong> to modern data solutions.<br>
-    <em>"Sometimes you gotta run before you can walk." – Tony Stark</em>
-  </div>
-
-  <!-- Stark "Suit Up" Animation SVG -->
-  <div class="ironman-visual">
-    <svg class="suit-pulse" width="120" height="120" viewBox="0 0 120 120" fill="none">
-      <ellipse cx="60" cy="60" rx="56" ry="56" fill="#212e37" stroke="#FFD700" stroke-width="4"/>
-      <path d="M47,80 Q60,110 73,80" stroke="#FFD700" stroke-width="4" fill="none"/>
-      <ellipse cx="60" cy="40" rx="28" ry="24" fill="#930400" stroke="#FFD700" stroke-width="3"/>
-      <ellipse cx="60" cy="37" rx="7" ry="4" fill="#00ffe7" stroke="white" stroke-width="1"/>
-      <rect x="55" y="50" width="10" height="18" rx="4" fill="#FFD700" stroke="#D4AF37" stroke-width="2"/>
-    </svg>
-  </div>
-
-  <div class="instructions"><strong>Mini Game:</strong> Catch the Arc Reactors to earn points. Reactors fall faster as your score increases!</div>
-  <div class="score-board" id="scoreBoard">Score: 0</div>
-  <div id="gameContainer"></div>
-
-  <!-- More visuals can be added or themed SVGs replaced as desired. -->
-
-  <script>
-    // Simple Falling "Arc Reactor" Game
-    const gameContainer = document.getElementById('gameContainer');
-    const scoreBoard = document.getElementById('scoreBoard');
-    let score = 0;
-    let speed = 2.2;
-    let interval = 1500;
-
-    function spawnReactor() {
-      const reactor = document.createElement('div');
-      reactor.className = 'falling-reactor';
-      // Random horizontal start, within bounds
-      reactor.style.left = Math.random() * (gameContainer.clientWidth - 54) + 'px';
-      reactor.style.top = '-54px';
-      gameContainer.appendChild(reactor);
-
-      let fall = setInterval(() => {
-        let currentTop = parseFloat(reactor.style.top) || -54;
-        if (currentTop < gameContainer.clientHeight) {
-          reactor.style.top = currentTop + speed + 'px';
-        } else {
-          clearInterval(fall);
-          if (reactor.parentElement) {
-            gameContainer.removeChild(reactor);
-          }
-        }
-      }, 12);
-
-      reactor.onclick = function() {
-        score++;
-        scoreBoard.textContent = "Score: " + score;
-        if (score % 5 === 0) {
-          speed += 0.8;
-          interval = Math.max(650, interval - 90);
-        }
-        gameContainer.removeChild(reactor);
-      }
-    }
-
-    // Game loop: spawn arc reactors at timed intervals
-    let gameLoop = setInterval(spawnReactor, interval);
-    // Speed up as the game progresses
-    setInterval(() => {
-      clearInterval(gameLoop);
-      gameLoop = setInterval(spawnReactor, interval);
-    }, 1500);
-  </script>
 </body>
 </html>

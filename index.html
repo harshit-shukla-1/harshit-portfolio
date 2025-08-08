@@ -1,204 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Harshit Shulka - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Data Engineer - Iron Man Theme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root {
-      --bg: #101820;
-      --fg: #f4f8fb;
-      --accent: #31cafb;
-      --card-bg: #182535;
-      --border: #253342;
-      --radius: 18px;
-      --transition: 0.25s cubic-bezier(.8,.4,.3,1);
-    }
-    html, body {
-      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
-      font-family: 'Inter', Arial, sans-serif;
-    }
+    /* Futuristic grid semiconductor chip background */
     body {
-      min-height: 100vh; line-height: 1.62;
+      background: linear-gradient(135deg, #0b2238 0%, #142e42 100%);
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #aee6ff;
+      position: relative;
+      overflow: hidden;
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 2rem 1rem;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: 0 8px 24px #0d1a2f44;
+
+    /* Grid Lines */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        linear-gradient(to right, rgba(173, 216, 230, 0.08) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(173, 216, 230, 0.08) 2px, transparent 2px);
+      background-size: 40px 40px;
+      z-index: 0;
+      pointer-events: none;
     }
-    .profile {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .profile-img {
-      width: 130px; height: 130px;
+
+    /* Animated glowing arc (Iron Man effect) */
+    .arc {
+      position: absolute;
+      top: 30px; left: calc(50% - 150px);
+      width: 300px; height: 300px;
       border-radius: 50%;
-      border: 3px solid var(--accent);
-      object-fit: cover;
-      transition: transform var(--transition);
+      border: 4px solid #78d1ff;
+      box-shadow: 0 0 60px 10px #00c9ff66, 0 0 120px 10px #00b8e6;
+      animation: arcRotate 8s linear infinite;
+      opacity: 0.15;
+      z-index: 1;
     }
-    .profile-img:hover { transform: scale(1.05);}
-    .profile-info h1 {
-      margin: 0 0 0.5em 0;
-      font-size: 2.4rem;
-      font-weight: 700;
+
+    @keyframes arcRotate {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
     }
-    .socials {
-      display: flex; gap: 1.2em; margin-top: 0.8em;
+
+    /* Hero Iron Man text */
+    h1 {
+      font-size: 2.6rem;
+      font-weight: bold;
+      text-shadow:
+        0 0 10px #00b8e6,
+        0 0 20px #e0f7fa,
+        0 0 35px #00b8e6;
+      color: #78d1ff;
+      letter-spacing: 2px;
     }
-    .socials a {
-      color: var(--accent);
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: color var(--transition);
+
+    .container {
+      position: relative;
+      z-index: 3;
+      padding: 64px 32px 32px 32px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(16, 28, 40, 0.78);
+      border-radius: 18px;
+      box-shadow: 0 0 32px #2ec0fc44;
     }
-    .socials a:hover { color: #fff; }
-    section {
-      margin-top: 2.5em;
-      margin-bottom: 0.5em;
-    }
+
     h2 {
-      font-size: 1.35rem;
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      margin-bottom: 0.8em;
-      margin-top: 0.2em;
+      margin-top: 32px;
+      color: #60b3e6;
+      text-shadow: 0 0 8px #00b8e6;
     }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.6em;
+
+    ul {
+      margin: 18px 0;
+      padding-left: 18px;
+      line-height: 1.7;
     }
-    .card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.3em 1em;
-      box-shadow: 0 2px 8px #26324811;
-      transition: transform var(--transition), box-shadow var(--transition);
-      will-change: transform;
-      min-height: 110px;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-    }
-    .card:hover {
-      transform: translateY(-7px) scale(1.02);
-      box-shadow: 0 8px 24px #31cafa55;
-      border-color: var(--accent);
-    }
-    .card-title {
-      font-size: 1.18rem;
-      font-weight: 600;
-      margin-bottom: 0.4em;
-      letter-spacing: 0.3px;
-      color: #fff;
-    }
-    .card .card-link {
-      margin-top: 1em;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 1rem;
+
+    /* Glow effect for key points and resume text */
+    .highlight {
+      background: linear-gradient(90deg,#45aaff33,#93f5ff10);
+      padding: 2px 6px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px #3ad3f8a0;
+      color: #eafcff;
       font-weight: 500;
-      transition: color var(--transition);
-      align-self: flex-start;
+      transition: box-shadow 0.6s ;
+      animation: highlight-pulse 2.5s infinite alternate;
     }
-    .card .card-link:hover { text-decoration: underline; color: #fff;}
-    .skills-list {
-      display: flex; flex-wrap: wrap; gap: 1em;
-      list-style: none; padding: 0; margin: 0;
+    @keyframes highlight-pulse {
+      0% { box-shadow: 0 0 8px #2ec0fc88;}
+      100% { box-shadow: 0 0 18px #88e6ff88;}
     }
-    .skill {
-      background: var(--border);
-      color: var(--accent);
-      padding: 0.4em 1em;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      margin-bottom: 0.5em;
-      transition: background var(--transition), color var(--transition);
+
+    /* Futuristic divider */
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, #50d1ff44, #00b8e666 50%, #50d1ff44);
+      margin: 24px 0;
+      border: none;
     }
-    .skill:hover {
-      background: var(--accent);
-      color: #182535;
+
+    /* Animated spark lines (moving lasers on side) */
+    .spark {
+      position: absolute;
+      width: 4px;
+      height: 120px;
+      background: linear-gradient(180deg,#33cfff99,#f4fbff22 90%);
+      left: 20%;
+      top: 0;
+      z-index: 2;
+      animation: sparkMove 4s linear infinite;
     }
-    .contact-box {
-      background: #22304b;
-      border-radius: var(--radius);
-      padding: 1em 1.2em;
-      margin-top: 1em;
-      font-size: 1.18em;
-      color: #fff;
+    .spark2 {
+      left: 80%;
+      animation-delay: 2s;
     }
-    a, a:visited { color: var(--accent);}
-    @media (max-width: 700px) {
-      .container { padding: 1.1em;}
-      .profile { flex-direction: column; gap: 1em;}
-      .profile-img { width: 88px; height: 88px;}
+    @keyframes sparkMove {
+      0% { top:0; opacity:0.6;}
+      80% { top:80vh; opacity:0.3;}
+      100% { top:95vh; opacity:0;}
     }
-    @media (max-width: 520px) {
-      h1 { font-size: 2rem;}
-      .cards { grid-template-columns: 1fr;}
-      .skills-list { gap: 0.7em; font-size: 0.97em;}
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      .container { padding: 20px 8px; }
+      .arc { width:160px; height:160px; left:calc(50% - 80px);}
+      h1 { font-size:2rem;}
     }
   </style>
 </head>
 <body>
+  <div class="arc"></div>
+  <div class="spark"></div>
+  <div class="spark spark2"></div>
   <div class="container">
-    <div class="profile">
-      <img src="https://media.licdn.com/dms/image/v2/D4D03AQHB9aLTLc6TaA/profile-displayphoto-crop_800_800/B4DZiD0PTNG8AM-/0/1754558167324?e=1757548800&v=beta&t=lFqMlaBPb9R3BWEBvICqjtOH8IaM4W39AZ3UNwTcTQM" alt="Harshit Shukla" class="profile-img" />
-      <div class="profile-info">
-        <h1>Harshit Shukla</h1>
-        <p>Data Engineer with 4+ years of experience in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.
-</p>
-        <div class="socials">
-          <a href="https://github.com/harshit-shukla-1" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank">LinkedIn</a>
-          <a href="mailto:starkjarvis1997@gmail.com">Email</a>
-        </div>
-      </div>
-    </div>
-    <section>
-      <h2>Projects</h2>
-      <div class="cards">
-        <div class="card">
-          <span class="card-title">Flipkart Data Analysis</span>
-          <p>This is the project where we are analysing the data of flipkart using databricks. I have also included the data here in the form of csv which I am analysing. </p>
-          <a class="card-link" href="https://github.com/harshit-shukla-1/flipkart-data-analysis" target="_blank">Flipkart Data Analysis</a>
-        </div>
-        <div class="card">
-          <span class="card-title">Apache Spark Analysis</span>
-          <p>This project is for analysing the spark commands and create notebooks for the basis of all data engineering projects. This includes all the sql related concepts too. </p>
-          <a class="card-link" href="https://github.com/harshit-shukla-1/apache-spark" target="_blank">Apache Spark Analysis</a>
-        </div>
-        <!-- Add more cards for projects as needed -->
-      </div>
-    </section>
-    <section>
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li class="skill">Python</li>
-        <li class="skill">SQL</li>
-        <li class="skill">Pyspark</li>
-        <li class="skill">Azure</li>
-        <li class="skill">Airflow</li>
-        <li class="skill">Databricks</li>
-        <li class="skill">Power BI</li>
-        <!-- Add more skills -->
-      </ul>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <div class="contact-box">
-        Prefer email? <a href="mailto:starkjarvis1997@gmail.com">Email me</a> — or reach out through <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank">LinkedIn</a>.
-      </div>
-    </section>
+    <h1>Data Engineer - Inspired by Iron Man</h1>
+    <hr class="divider">
+
+    <span class="highlight">Data Engineer with 4+ years of experience</span> in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.
+
+    <h2>Flipkart Data Analysis</h2>
+    <ul>
+      <li>Analysed real-world Flipkart data using Apache Spark and Databricks</li>
+      <li>Explored Spark commands and created modular notebooks as foundation for data engineering projects</li>
+      <li>Integrated SQL concepts for comprehensive, flexible analytics</li>
+      <li>Delivered insights to improve e-commerce performance and trends understanding</li>
+    </ul>
+
+    <h2>Technical Strengths</h2>
+    <ul>
+      <li><span class="highlight">PySpark, Databricks, Azure</span></li>
+      <li>Complex data pipeline design & optimization</li>
+      <li>Big Data analytics and performance tuning</li>
+      <li><span class="highlight">SQL expertise</span> for querying large datasets</li>
+      <li>Collaborative project delivery with strong documentation skills</li>
+    </ul>
+
+    <hr class="divider">
+    <p style="font-size:1.1rem;">This themed resume blends <span class="highlight">innovation and technology</span>—inspired by Iron Man's futuristic universe—to showcase my passion for solving data challenges and building next-generation analytics systems.</p>
   </div>
 </body>
 </html>

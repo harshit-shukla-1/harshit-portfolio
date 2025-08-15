@@ -175,6 +175,94 @@
       .cards { grid-template-columns: 1fr;}
       .skills-list { gap: 0.7em; font-size: 0.97em; }
     }
+    .socials-section {
+  margin-top: 2.5em;
+  margin-bottom: 0.5em;
+  padding: 2em 0 1em 0;
+  background: rgba(10, 20, 32, 0.80);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 20px #00e5ff22, 0 0 32px #00e5ff22 inset;
+  backdrop-filter: blur(6px);
+}
+
+.socials-section h2 {
+  color: var(--accent);
+  text-shadow: 0 0 12px #00e5ff66;
+  margin-bottom: 1.4em;
+  margin-top: 0;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.socials-cards {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.social-card {
+  background: rgba(25, 35, 55, 0.6);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 3px 16px #00e5ff22 inset;
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 330px;
+  padding: 1em 1em 1em 0.8em;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  transition: box-shadow var(--transition), border var(--transition);
+}
+
+.social-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--accent-glow);
+}
+
+.social-icon {
+  flex: 0 0 38px;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
+}
+
+.social-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.social-link {
+  color: var(--accent);
+  font-size: 1.12em;
+  font-weight: 700;
+  margin-bottom: 0.24em;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: color var(--transition), text-shadow var(--transition);
+}
+.social-link:hover {
+  color: #fff;
+  text-shadow: var(--accent-glow);
+}
+
+.social-info p {
+  font-size: 1em;
+  color: #c2edf4;
+  margin: 0;
+  margin-top: 0.12em;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .socials-cards { flex-direction: column; gap: 0.4em; }
+  .social-card { max-width: 100%; }
+}
   </style>
 </head>
 <body>
@@ -186,11 +274,45 @@
       <div class="profile-info">
         <h1>Harshit Shukla</h1>
         <p>Data Engineer with 4+ years of experience in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.</p>
-        <div class="socials">
-          <a href="https://github.com/harshit-shukla-1" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank">LinkedIn</a>
-          <a href="mailto:starkjarvis1997@gmail.com">Email</a>
-        </div>
+        <!-- ===== Socials Section ===== -->
+<section class="socials-section">
+  <h2>Let's Connect</h2>
+  <div class="socials-cards">
+    <!-- GitHub -->
+    <div class="social-card">
+      <div class="social-icon">
+        <!-- GitHub SVG Icon -->
+        <svg height="32" width="32" fill="#00e5ff" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 006.84 7.87c.5.09.66-.21.66-.47v-1.67c-2.78.61-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.7-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.02A9.58 9.58 0 018 4.68c.85.003 1.71.11 2.51.32 1.91-1.29 2.74-1.02 2.74-1.02.55 1.41.2 2.45.1 2.71.64.7 1.03 1.61 1.03 2.7 0 3.85-2.34 4.7-4.58 4.94.36.31.68.92.68 1.85v2.75c0 .27.16.57.67.47A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </div>
+      <div class="social-info">
+        <a href="https://github.com/harshit-shukla-1" target="_blank" class="social-link">GitHub</a>
+        <p>I share quirky code snippets and elegant data solutions on GitHub. My repositories sometimes work at 3am—just like me!</p>
+      </div>
+    </div>
+    <!-- LinkedIn -->
+    <div class="social-card">
+      <div class="social-icon">
+        <!-- LinkedIn SVG Icon -->
+        <svg height="32" width="32" fill="#00e5ff" viewBox="0 0 16 16"><path d="M1.146 1.146A.5.5 0 011.5 1h13a.5.5 0 01.5.5v13a.5.5 0 01-.5.5h-13a.5.5 0 01-.5-.5v-13a.5.5 0 01.146-.354zM5.065 12.6V7.85h-1.61v4.75h1.61zm-0.805-5.403a.93.93 0 01-.928-.928c0-.512.417-.93.928-.93.51 0 .929.418.929.93a.929.929 0 01-.929.928zm6.583 5.403V10.02c0-1.277-.263-2.091-1.717-2.091-.702 0-1.227.393-1.43.769-.067.126-.084.302-.084.479v3.423h1.61v-2.199c0-.175.01-.349.067-.471.137-.287.449-.585.973-.585.684 0 .958.496.958 1.224v2.031h1.609z"/></svg>
+      </div>
+      <div class="social-info">
+        <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank" class="social-link">LinkedIn</a>
+        <p>I network, share tech insights, and occasionally drop “big data” jokes on LinkedIn. Connect with me for professional banter!</p>
+      </div>
+    </div>
+    <!-- Email -->
+    <div class="social-card">
+      <div class="social-icon">
+        <!-- Email SVG Icon -->
+        <svg height="32" width="32" fill="#00e5ff" viewBox="0 0 16 16"><path d="M0 4a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm1.4.161a1 1 0 011-1H13.6a1 1 0 011 1v.217l-7.301 4.565a.6.6 0 01-.598 0L1.401 4.379V4.161zm13.2 7.678V5.479l-6.533 4.082a2.6 2.6 0 01-2.134 0L1.401 5.479v6.36a1 1 0 001 1h10.198a1 1 0 001-1z"/></svg>
+      </div>
+      <div class="social-info">
+        <a href="mailto:starkjarvis1997@gmail.com" class="social-link">Email</a>
+        <p>Inbox zero is a myth, but I reply to emails—especially those with data, donuts, or debugging mysteries.</p>
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </div>
     <!-- ===== Projects ===== -->

@@ -518,17 +518,69 @@
   .contact-card { max-width: 100%; }
 }
 
+.nav-sections {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.3em;
+  margin-bottom: 2em;
+  position: relative;
+  z-index: 5;
+}
+
+.nav-sections button {
+  background: linear-gradient(90deg, #00e5ff44, #0f172a);
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+  border-radius: 999px;
+  font-size: 1.04em;
+  font-weight: 700;
+  padding: 0.34em 1.2em;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+  cursor: pointer;
+  box-shadow: 0 0 16px #00e5ff22;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.nav-sections button:hover {
+  background: #00e5ff;
+  color: #182535;
+  box-shadow: var(--accent-glow);
+}
+
   </style>
 </head>
 <body>
+  <nav class="nav-sections">
+  <button onclick="document.getElementById('bio').scrollIntoView({behavior:'smooth'})">Bio</button>
+  <button onclick="document.getElementById('socials').scrollIntoView({behavior:'smooth'})">Socials</button>
+  <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Projects</button>
+  <button onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skills</button>
+  <button onclick="document.getElementById('contactme').scrollIntoView({behavior:'smooth'})">Contact</button>
+</nav>
+
   <canvas id="bg-animation"></canvas>
   <div class="container">
     <!-- ===== Bio / Summary ===== -->
     <div class="profile">
       <img src="https://media.licdn.com/dms/image/v2/D4D03AQHB9aLTLc6TaA/profile-displayphoto-crop_800_800/B4DZiD0PTNG8AM-/0/1754558167324?e=1758153600&v=beta&t=sxpbwUq7T97ssCA6tL3hGkJsuTAl9VUudfS-Ok-3jps" alt="Portrait of Harshit Shukla, Data Engineer" class="profile-img" />
       <div class="profile-info">
-        <h1>Harshit Shukla</h1>
-        <p>Data Engineer with 4+ years of experience in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.</p>
+    <h1>Harshit Shukla</h1>
+    <p>
+      Hi, I’m Harshit—a Data Engineer who automates chaos by choice, and writes ETLs so robust they make coffee jealous.<br>
+      <br>
+      With 4+ years wrangling data for global enterprises, I transform spreadsheets into insights, and legacy warehouses into cloud-native solutions. My pipelines on Azure and Databricks scale faster than my caffeine intake!<br>
+      <br>
+      I optimize Spark jobs until they run smoother than butter on a GPU, and my Python scripts can *sometimes* predict my next snack.<br>
+      <br>
+      Whether collaborating across teams or taming jungle-sized datasets for German automotive giants, I live for building scalable data platforms—and chasing “why did this job fail at 2am?” mysteries.<br>
+      <br>
+      Let’s build the future of data, automate the boring parts, and have a laugh when Airflow goes down right before a demo!
+    </p>
+    <!-- Socials section button is just below, so you can skip socials links here -->
+  </div>
+  </div>
         <!-- ===== Socials Section ===== -->
 <section class="socials-section">
   <h2>Let's Connect</h2>

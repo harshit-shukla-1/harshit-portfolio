@@ -263,6 +263,106 @@
   .socials-cards { flex-direction: column; gap: 0.4em; }
   .social-card { max-width: 100%; }
 }
+
+.creative-projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.project-card {
+  background: rgba(20, 30, 50, 0.6);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 18px #00e5ff22;
+  padding: 1.5em 1em;
+  display: flex;
+  gap: 1.2em;
+  align-items: flex-start;
+  min-height: 220px;
+  transition: box-shadow var(--transition), border var(--transition), transform var(--transition);
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.project-icon {
+  flex: 0 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15em;
+}
+
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #f4f8fb;
+  margin-bottom: 0.3em;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px #00e5ff22;
+}
+
+.project-content p {
+  margin: 0 0 0.9em 0;
+  font-size: 1em;
+  color: #c2edf4;
+}
+
+.tech-used {
+  margin-bottom: 0.6em;
+  font-size: 0.98em;
+  color: #79daf8;
+  letter-spacing: 0.3px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45em;
+  align-items: center;
+}
+
+.tech-used span:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 0.35em;
+  letter-spacing: 0.3px;
+}
+
+.tech-badge {
+  background: rgba(0, 229, 255, 0.14);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.17em 0.75em;
+  border-radius: 999px;
+  font-size: 0.93em;
+  font-weight: 600;
+}
+
+.project-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.2em;
+  display: inline-block;
+  transition: color var(--transition), text-shadow var(--transition);
+  font-size: 1em;
+}
+.project-link:hover {
+  color: #fff;
+  text-shadow: var(--accent-glow);
+}
+
+@media (max-width: 900px) {
+  .creative-projects { grid-template-columns: 1fr; gap: 1em; }
+}
   </style>
 </head>
 <body>
@@ -315,22 +415,60 @@
 </section>
       </div>
     </div>
-    <!-- ===== Projects ===== -->
-    <section>
-      <h2>Projects</h2>
-      <div class="cards">
-        <div class="card">
-          <span class="card-title">Flipkart Data Analysis</span>
-          <p>This project analyzes Flipkart’s data using Databricks, including CSV datasets for in-depth exploration.</p>
-          <a class="card-link" href="https://github.com/harshit-shukla-1/flipkart-data-analysis" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-          <span class="card-title">Apache Spark Analysis</span>
-          <p>Notebook-based exploration of Spark commands and SQL concepts, serving as the base for data engineering pipelines.</p>
-          <a class="card-link" href="https://github.com/harshit-shukla-1/apache-spark" target="_blank">View Project</a>
-        </div>
+   <!-- ===== Projects Section ===== -->
+<section>
+  <h2>Projects</h2>
+  <div class="creative-projects">
+
+    <!-- Flipkart Data Analysis Card -->
+    <div class="project-card">
+      <div class="project-icon">
+        <!-- Data chart SVG -->
+        <svg width="40" height="40" fill="#00e5ff" viewBox="0 0 32 32">
+          <rect x="6" y="18" width="5" height="8" rx="2"/>
+          <rect x="14" y="13" width="5" height="13" rx="2"/>
+          <rect x="22" y="7" width="5" height="19" rx="2"/>
+        </svg>
       </div>
-    </section>
+      <div class="project-content">
+        <div class="project-title">Flipkart Data Analysis</div>
+        <p>Ever wondered what drives e-commerce giants behind the scenes? I built and optimized scalable ETL pipelines to dissect Flipkart’s massive datasets—finding insights hidden in the clicks, carts, and checkouts. Sometimes, even my queries needed a coffee break!</p>
+        <div class="tech-used">
+          <span>Technologies used:</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Spark</span>
+          <span class="tech-badge">SQL</span>
+          <span class="tech-badge">Databricks</span>
+        </div>
+        <a class="project-link" href="https://github.com/harshit-shukla-1/flipkart-data-analysis" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <!-- Apache Spark Analysis Card -->
+    <div class="project-card">
+      <div class="project-icon">
+        <!-- Lightning bolt SVG -->
+        <svg width="40" height="40" fill="#00e5ff" viewBox="0 0 32 32">
+          <polygon points="16,4 12,18 16,18 14,28 24,12 18,12 20,4"/>
+        </svg>
+      </div>
+      <div class="project-content">
+        <div class="project-title">Apache Spark Analysis</div>
+        <p>From confessions to config files, this project dives deep into Spark—creating streamlined notebooks that decode SQL logic and Spark magic. It’s where data meets velocity, and where I make distributed computing look easy… most days!</p>
+        <div class="tech-used">
+          <span>Technologies used:</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Spark</span>
+          <span class="tech-badge">SQL</span>
+          <span class="tech-badge">Databricks</span>
+        </div>
+        <a class="project-link" href="https://github.com/harshit-shukla-1/apache-spark" target="_blank">View Project</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
     <!-- ===== Skills ===== -->
     <section>
       <h2>Skills</h2>

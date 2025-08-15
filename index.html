@@ -1,223 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Data Engineer - Arc Reactor Resume</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harshit Shukla - Data Engineer, welcome to my data world</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: #aee6ff;
-      background: radial-gradient(circle at center, #3cb0e7 0%, #102030 100%);
-      overflow-x: hidden;
-      position: relative;
+    :root {
+      --bg-gradient: radial-gradient(circle at 20% 20%, #0f172a, #0a0f1f);
+      --fg: #e0f7fa;
+      --accent: #00e5ff;
+      --accent-glow: 0 0 10px #00e5ff, 0 0 40px #00e5ff44;
+      --card-bg: rgba(20, 30, 50, 0.55);
+      --border: rgba(0, 229, 255, 0.3);
+      --radius: 16px;
+      --transition: 0.25s cubic-bezier(.8,.4,.3,1);
     }
-    /* Arc Reactor Animated Background */
-    .arc-bg {
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg-gradient);
+      color: var(--fg);
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      line-height: 1.62;
+      background-attachment: fixed;
+      position: relative;
+      overflow-x: hidden;
+    }
+    #bg-animation {
       position: fixed;
-      top: 50%; left: 50%;
-      width: 540px; height: 540px;
-      transform: translate(-50%, -50%);
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       z-index: 0;
       pointer-events: none;
     }
-    .arc-center {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      box-shadow: 0 0 65px 32px #40a8ff80, 0 0 35px 18px #e47676c0;
-      width: 90px; height: 90px;
-      background: radial-gradient(circle, #49eaff 90%, #ea4444 100%);
-      border: 6px solid #7bf8e2;
-      animation: corepulse 3s infinite alternate;
-    }
-    @keyframes corepulse {
-      0% { box-shadow: 0 0 50px 10px #40a8ff80, 0 0 10px 2px #ea4444c0; }
-      100% { box-shadow: 0 0 80px 40px #eee0ffcc, 0 0 45px 22px #e5737360; }
-    }
-    .arc-ring {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      border: 8px solid #46e6ff;
-      box-shadow: 0 0 22px 4px #ea4444a0;
-      width: 210px; height: 210px;
-      background: transparent;
-      animation: ringspin 18s linear infinite;
-      opacity: 0.7;
-    }
-    .arc-ring2 {
-      border: 8px solid #ea4444;
-      width: 340px; height: 340px;
-      box-shadow: 0 0 32px 10px #56bbff80;
-      animation: ringspinRev 28s linear infinite;
-      opacity: 0.3;
-    }
-    .arc-ring3 {
-      border: 6px dashed #6cf3ff;
-      width: 495px; height: 495px;
-      box-shadow: 0 0 32px 24px #ff808060;
-      animation: ringspin 32s linear infinite;
-      opacity: 0.17;
-    }
-    @keyframes ringspin {
-      0% { transform: translate(-50%, -50%) rotate(0); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    @keyframes ringspinRev {
-      0% { transform: translate(-50%, -50%) rotate(360deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-
-    /* Profile image style */
-    .profile-img {
-      width: 120px; height:120px;
-      border-radius: 50%;
-      border: 4px solid #78d1ff;
-      box-shadow: 0 0 30px #00c9ff88, 0 0 40px #ea4444a0;
-      object-fit: cover;
-      background: #142e42;
-      margin: 0 auto 18px auto; display: block;
-      position: relative;
-      z-index: 2;
-      animation: img-glow 3.5s infinite alternate;
-    }
-    @keyframes img-glow {
-      0% { box-shadow: 0 0 30px #00a9ffb0, 0 0 15px #ea444440;}
-      100% { box-shadow: 0 0 50px #3cf0ffc0, 0 0 70px #ea444480;}
-    }
-    h1 {
-      text-align: center;
-      font-size: 2.58rem;
-      font-weight: bold;
-      color: #7deeff;
-      text-shadow: 0 0 18px #ea4444, 0 0 36px #40a8ff;
-      margin-top: 10px;
-      z-index: 2;
-      position: relative;
-    }
     .container {
-      position: relative; z-index: 2;
+      position: relative;
+      z-index: 2;
       max-width: 900px;
-      margin: 70px auto 0 auto;
-      padding: 48px 28px 24px 28px;
-      background: rgba(18,34,50,0.92);
-      border-radius: 18px;
-      box-shadow: 0 0 32px #5ed0ff44, 0 0 7px #ea4444a0;
+      margin: 40px auto;
+      padding: 2rem 1rem;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px rgba(0,229,255,0.08);
+      backdrop-filter: blur(8px);
     }
-    .divider {
-      height:2px; border:none;
-      background:linear-gradient(90deg,#40d1ff44,#ea444499,#40d1ff44);
-      margin: 22px 0;
+    .profile {
+      display: flex; gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
-    .highlight {
-      background:linear-gradient(90deg,#45aaff33,#ea444415);
-      padding: 4px 10px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px #ea4444, 0 0 8px #45aaff80;
-      color:#eafcff; font-weight:500;
-      animation: highlight-pulse 2.6s infinite alternate;
+    .profile-img {
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+      box-shadow: var(--accent-glow);
+      transition: transform var(--transition);
     }
-    @keyframes highlight-pulse {
-      0%{box-shadow:0 0 8px #ea444440, 0 0 12px #40a8ff;}
-      100%{box-shadow:0 0 15px #ea444460, 0 0 7px #40a8ff;}
+    .profile-img:hover { transform: scale(1.06); }
+    .profile-info h1 {
+      margin: 0 0 0.5em 0;
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00e5ff, #80d8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    /* Project cards */
-    .projects-row {
-      display: flex; flex-wrap: wrap;
-      gap: 24px; margin-top: 20px;
-      justify-content: center;
+    .socials {
+      display: flex; gap: 1.2em; margin-top: 0.8em;
     }
-    .proj-card {
-      background: rgba(12,33,58,0.85);
-      border-radius: 14px;
-      box-shadow: 0 0 18px #40a8ff40, 0 0 7px #ea4444a0;
-      color: #aee6ff;
-      min-width: 240px; width: 310px; padding: 18px;
-      margin-bottom: 12px;
-      border: 2px solid #ea444466;
-      transition: box-shadow 0.5s, border 0.4s;
-      position:relative; overflow:hidden;
-      animation: cardfloat 7s ease-in-out infinite; 
+    .socials a {
+      color: var(--accent);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color var(--transition), text-shadow var(--transition);
     }
-    .proj-card:hover {
-      box-shadow:0 0 28px #2ec0fc80, 0 0 28px #ea444480;
-      border:2px solid #aee6ff;
+    .socials a:hover {
+      color: #fff;
+      text-shadow: var(--accent-glow);
     }
-    @keyframes cardfloat {
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-12px);}
+    section {
+      margin-top: 2.5em;
+      margin-bottom: 0.5em;
     }
-    .proj-title {
+    h2 {
+      font-size: 1.35rem;
+      color: var(--accent);
+      letter-spacing: 1.2px;
+      margin-bottom: 0.8em;
+      margin-top: 0.2em;
+      text-shadow: 0 0 6px #00e5ff55;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.6em;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3em 1em;
+      box-shadow: 0 0 25px rgba(0,229,255,0.05);
+      transition: transform var(--transition), box-shadow var(--transition);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-7px) scale(1.02);
+      box-shadow: var(--accent-glow);
+      border-color: var(--accent);
+    }
+    .card-title {
+      font-size: 1.18rem;
       font-weight: 600;
-      color: #94e0ff;
-      font-size: 1.25rem;
-      margin-bottom:8px;
-      text-shadow: 0 0 8px #ea4444a0, 0 0 8px #00c9ff40;
+      margin-bottom: 0.4em;
+      color: #fff;
     }
-    .proj-desc {
-      font-size: 1.04rem;
-      margin:0;
+    .card .card-link {
+      margin-top: 1em;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color var(--transition);
+      align-self: flex-start;
     }
-    /* Responsive */
-    @media (max-width:700px){
-      .container{padding:10px 2px;}
-      h1{font-size:1.8rem;}
-      .projects-row{flex-direction:column;align-items:center;}
-      .arc-bg { width:220px; height:220px; }
+    .card .card-link:hover {
+      color: #fff;
+      text-shadow: var(--accent-glow);
+    }
+    .skills-list {
+      display: flex; flex-wrap: wrap; gap: 1em;
+      list-style: none; padding: 0; margin: 0;
+    }
+    .skill {
+      background: rgba(0, 229, 255, 0.12);
+      color: var(--accent);
+      padding: 0.4em 1em;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+    }
+    .skill:hover {
+      background: var(--accent);
+      color: #0a0f1f;
+      box-shadow: var(--accent-glow);
+    }
+    .contact-box {
+      background: rgba(0, 30, 40, 0.6);
+      border-radius: var(--radius);
+      padding: 1em 1.2em;
+      margin-top: 1em;
+      font-size: 1.18em;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 20px rgba(0,229,255,0.05);
+    }
+    a, a:visited { color: var(--accent); }
+    @media (max-width: 700px) {
+      .container { padding: 1.1em; }
+      .profile { flex-direction: column; gap: 1em; text-align: center; }
+      .profile-img { width: 88px; height: 88px; }
+    }
+    @media (max-width: 520px) {
+      h1 { font-size: 2rem;}
+      .cards { grid-template-columns: 1fr;}
+      .skills-list { gap: 0.7em; font-size: 0.97em; }
     }
   </style>
 </head>
 <body>
-  <!-- Arc Reactor Animated Background -->
-  <div class="arc-bg">
-    <div class="arc-ring arc-ring3"></div>
-    <div class="arc-ring arc-ring2"></div>
-    <div class="arc-ring arc-ring"></div>
-    <div class="arc-center"></div>
-  </div>
+  <canvas id="bg-animation"></canvas>
   <div class="container">
-    <!-- Profile Image -->
-    <img class="profile-img" src="https://media.licdn.com/dms/image/v2/D4D03AQHB9aLTLc6TaA/profile-displayphoto-crop_800_800/B4DZiD0PTNG8AM-/0/1754558167324?e=1757548800&v=beta&t=lFqMlaBPb9R3BWEBvICqjtOH8IaM4W39AZ3UNwTcTQM" alt="Profile Picture">  
-    <h1>Data Engineer - Powered by the Arc Reactor</h1>
-    <hr class="divider">
-    <span class="highlight">Data Engineer with 4+ years of experience</span> in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.
-
-    <h2 style="color:#60b3e6;">Projects</h2>
-    <div class="projects-row">
-      <!-- Project Card 1 -->
-      <div class="proj-card">
-        <div class="proj-title">Flipkart Data Analysis</div>
-        <p class="proj-desc">
-          Analysed Flipkart data using Apache Spark and Databricks.<br>
-          Created modular notebooks which serve as a basis for further data engineering projects involving SQL and analytics.
-        </p>
+    <!-- ===== Bio / Summary ===== -->
+    <div class="profile">
+      <img src="https://media.licdn.com/dms/image/v2/D4D03AQHB9aLTLc6TaA/profile-displayphoto-crop_800_800/B4DZiD0PTNG8AM-/0/1754558167324?e=1758153600&v=beta&t=sxpbwUq7T97ssCA6tL3hGkJsuTAl9VUudfS-Ok-3jps" alt="Portrait of Harshit Shukla, Data Engineer" class="profile-img" />
+      <div class="profile-info">
+        <h1>Harshit Shukla</h1>
+        <p>Data Engineer with 4+ years of experience in designing and implementing robust, scalable data solutions using PySpark, Databricks, and Microsoft Azure. I’ve worked extensively on large-scale data engineering projects, including a flagship initiative for a leading German automotive company, where I played a key role in modernizing their data processing pipelines and analytics infrastructure.</p>
+        <div class="socials">
+          <a href="https://github.com/harshit-shukla-1" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank">LinkedIn</a>
+          <a href="mailto:starkjarvis1997@gmail.com">Email</a>
+        </div>
       </div>
-      <!-- Project Card 2 -->
-      <div class="proj-card">
-        <div class="proj-title">Automotive Data Modernization</div>
-        <p class="proj-desc">
-          Designed and optimized complex data pipelines for a leading German automotive company.<br>
-          Modernized infrastructure with Azure & Databricks for improved performance and scalability.
-        </p>
-      </div>
-      <!-- Add more project cards as needed. -->
     </div>
-
-    <h2 style="color:#60b3e6;">Technical Strengths</h2>
-    <ul>
-      <li><span class="highlight">PySpark, Databricks, Azure</span></li>
-      <li>Complex data pipeline design & optimization</li>
-      <li>Big Data analytics and performance tuning</li>
-      <li><span class="highlight">SQL expertise</span> for querying large datasets</li>
-      <li>Collaborative project delivery with strong documentation skills</li>
-    </ul>
-    <hr class="divider">
-    <p style="font-size:1.1rem;">This themed resume blends <span class="highlight">innovation and technology</span>—inspired by Iron Man's arc reactor—to showcase my passion for solving data challenges and building next-generation analytics systems.</p>
+    <!-- ===== Projects ===== -->
+    <section>
+      <h2>Projects</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="card-title">Flipkart Data Analysis</span>
+          <p>This project analyzes Flipkart’s data using Databricks, including CSV datasets for in-depth exploration.</p>
+          <a class="card-link" href="https://github.com/harshit-shukla-1/flipkart-data-analysis" target="_blank">View Project</a>
+        </div>
+        <div class="card">
+          <span class="card-title">Apache Spark Analysis</span>
+          <p>Notebook-based exploration of Spark commands and SQL concepts, serving as the base for data engineering pipelines.</p>
+          <a class="card-link" href="https://github.com/harshit-shukla-1/apache-spark" target="_blank">View Project</a>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Skills ===== -->
+    <section>
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li class="skill">Python</li>
+        <li class="skill">SQL</li>
+        <li class="skill">Pyspark</li>
+        <li class="skill">Azure</li>
+        <li class="skill">Airflow</li>
+        <li class="skill">Databricks</li>
+        <li class="skill">Power BI</li>
+      </ul>
+    </section>
+    <!-- ===== Contact Me ===== -->
+    <section>
+      <h2>Contact</h2>
+      <div class="contact-box">
+        Prefer email? <a href="mailto:starkjarvis1997@gmail.com">Email me</a> — or connect through <a href="https://www.linkedin.com/in/harshitshukla6174/" target="_blank">LinkedIn</a>.
+      </div>
+    </section>
   </div>
+  <script>
+    // Futuristic animated background: Data lines + particles
+    const canvas = document.getElementById('bg-animation');
+    const ctx = canvas.getContext('2d');
+    let w = window.innerWidth, h = window.innerHeight;
+    canvas.width = w; canvas.height = h;
+
+    // Data lines
+    const lines = [];
+    for(let i=0; i<22; i++){
+      lines.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        speed: 0.5+Math.random(),
+        length: 100+Math.random()*80,
+        width: 1.5+Math.random()*1.5
+      });
+    }
+
+    // Floating particles
+    const dots = [];
+    for(let i=0; i<35; i++){
+      dots.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        r: 1.2+Math.random()*1.6,
+        dx: (Math.random()-0.5)*0.7,
+        dy: (Math.random()-0.5)*0.6,
+        alpha: 0.22+Math.random()*0.20
+      });
+    }
+
+    function animate(){
+      ctx.clearRect(0,0,w,h);
+
+      // Draw glowing lines
+      lines.forEach(line=>{
+        ctx.save();
+        ctx.globalAlpha = 0.11;
+        ctx.shadowColor = "#00e5ff";
+        ctx.shadowBlur = 16;
+        ctx.beginPath();
+        ctx.moveTo(line.x, line.y);
+        ctx.lineTo(line.x, line.y+line.length);
+        ctx.lineWidth = line.width;
+        ctx.strokeStyle = "#00e5ff";
+        ctx.stroke();
+        ctx.restore();
+
+        line.y += line.speed;
+        if(line.y > h) line.y = -line.length;
+      });
+
+      // Draw soft glowing dots
+      dots.forEach(dot=>{
+        ctx.save();
+        ctx.globalAlpha = dot.alpha;
+        ctx.shadowColor = "#00e5ff";
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.r, 0, 2*Math.PI);
+        ctx.fillStyle = "#00e5ff";
+        ctx.fill();
+        ctx.restore();
+
+        dot.x += dot.dx;
+        dot.y += dot.dy;
+        if(dot.x > w) dot.x = 0;
+        if(dot.x < 0) dot.x = w;
+        if(dot.y > h) dot.y = 0;
+        if(dot.y < 0) dot.y = h;
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Responsive resize
+    window.addEventListener('resize', ()=>{
+      w = window.innerWidth; h = window.innerHeight;
+      canvas.width = w; canvas.height = h;
+    });
+  </script>
 </body>
 </html>

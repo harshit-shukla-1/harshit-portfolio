@@ -363,6 +363,64 @@
 @media (max-width: 900px) {
   .creative-projects { grid-template-columns: 1fr; gap: 1em; }
 }
+.skills-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.skill-card {
+  background: rgba(20,30,50,0.6);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 18px #00e5ff22;
+  padding: 1.2em 1em;
+  display: flex;
+  gap: 1em;
+  align-items: flex-start;
+  min-height: 110px;
+  transition: box-shadow var(--transition), border var(--transition), transform var(--transition);
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.skill-icon {
+  flex: 0 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.18em;
+}
+
+.skill-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.26em;
+  letter-spacing: 0.3px;
+}
+
+.skill-info p {
+  margin: 0;
+  color: #c2edf4;
+  font-size: 0.98em;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .skills-cards { grid-template-columns: 1fr; gap: 1em; }
+}
+
   </style>
 </head>
 <body>
@@ -469,19 +527,171 @@
   </div>
 </section>
 
-    <!-- ===== Skills ===== -->
-    <section>
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li class="skill">Python</li>
-        <li class="skill">SQL</li>
-        <li class="skill">Pyspark</li>
-        <li class="skill">Azure</li>
-        <li class="skill">Airflow</li>
-        <li class="skill">Databricks</li>
-        <li class="skill">Power BI</li>
-      </ul>
-    </section>
+    <!-- ===== Skills Section ===== -->
+<section>
+  <h2>Skills</h2>
+  <div class="skills-cards">
+
+    <!-- Python -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Python SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><path d="M10 4h6v4h-2c-1.1 0-2 .9-2 2v2H8c-2.2 0-4 1.8-4 4v4c0 2.2 1.8 4 4 4h2v-2c0-1.1.9-2 2-2h2v-4H10c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2z"/><circle cx="10" cy="10" r="1" fill="#fff"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Python</div>
+        <p>If there’s a bug in my Python code, I’ll find it—usually after coffee. I’ve wrangled data and built scripts faster than you can say “import this”.</p>
+      </div>
+    </div>
+
+    <!-- SQL -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Database SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><ellipse cx="16" cy="7" rx="12" ry="5"/><rect x="4" y="7" width="24" height="18" rx="7" fill="none" stroke="#00e5ff"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">SQL</div>
+        <p>My SQL queries are optimized for breakfast, lunch, and big data crunches. I dream in SELECTs and sometimes forget semicolons—not proud, just honest!</p>
+      </div>
+    </div>
+
+    <!-- PySpark -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Spark logo SVG (lightning) -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><polygon points="16,4 12,18 16,18 14,28 24,12 18,12 20,4"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">PySpark</div>
+        <p>I’ve orchestrated PySpark pipelines and survived cluster chaos—I code distributed tasks smoother than Spark’s own DAG scheduler.</p>
+      </div>
+    </div>
+
+    <!-- Databricks -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Databricks SVG (hexagon, stylized) -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><polygon points="16,4 28,12 28,20 16,28 4,20 4,12"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Databricks</div>
+        <p>My notebooks in Databricks are so organized, even my future self thanks me. I wrangle data and run jobs with a click and a bit of luck.</p>
+      </div>
+    </div>
+
+    <!-- Azure -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Azure cloud SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><ellipse cx="20" cy="12" rx="10" ry="5"/><ellipse cx="12" cy="16" rx="8" ry="4"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Microsoft Azure</div>
+        <p>I confidently deploy scalable data pipelines on Azure—because why fear the cloud when you can automate it?</p>
+      </div>
+    </div>
+
+    <!-- Airflow -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Airflow paper plane SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><polygon points="4,28 28,16 4,6 9,17 16,19 9,21"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Airflow</div>
+        <p>I schedule data jobs and chase DAG errors before breakfast. My Airflow graphs look so good, they could hang in a data museum.</p>
+      </div>
+    </div>
+
+    <!-- Power BI -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Power BI bar chart SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><rect x="4" y="22" width="4" height="6"/><rect x="10" y="18" width="4" height="10"/><rect x="16" y="11" width="4" height="17"/><rect x="22" y="15" width="4" height="13"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Power BI</div>
+        <p>I turn cold, hard data into dashboards so lively, even executives stare. If you spot a typo in a chart, it's just to check if you’re paying attention!</p>
+      </div>
+    </div>
+
+    <!-- ===== Added Data Engineering Skills ===== -->
+    <!-- Git -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Git branch SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><circle cx="8" cy="24" r="3"/><circle cx="24" cy="8" r="3"/><circle cx="24" cy="24" r="3"/><line x1="8" y1="24" x2="24" y2="24" stroke="#00e5ff" stroke-width="2"/><line x1="24" y1="8" x2="24" y2="24" stroke="#00e5ff" stroke-width="2"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Git</div>
+        <p>My commits are frequent and descriptive—unless it’s Friday at 5PM. I resolve merge conflicts like a diplomat who pairs well with donuts.</p>
+      </div>
+    </div>
+
+    <!-- Docker -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Docker whale SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><rect x="7" y="13" width="3" height="4"/><rect x="11" y="13" width="3" height="4"/><rect x="15" y="13" width="3" height="4"/><rect x="19" y="13" width="3" height="4"/><path d="M5 17c1 3 6 7 15 5s7-7 7-7" stroke="#00e5ff" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Docker</div>
+        <p>I containerize with skill. My local builds are cleaner than my kitchen—both have great uptime!</p>
+      </div>
+    </div>
+
+    <!-- Kubernetes -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Kubernetes steering wheel SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" stroke="#00e5ff" stroke-width="2" fill="none"/><circle cx="16" cy="16" r="2"/><line x1="16" y1="8" x2="16" y2="14" stroke="#00e5ff" stroke-width="2"/><line x1="16" y1="18" x2="16" y2="24" stroke="#00e5ff" stroke-width="2"/><line x1="8" y1="16" x2="14" y2="16" stroke="#00e5ff" stroke-width="2"/><line x1="18" y1="16" x2="24" y2="16" stroke="#00e5ff" stroke-width="2"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Kubernetes</div>
+        <p>I orchestrate containers and pods—my clusters stay happy, except when they rebel (usually Mondays).</p>
+      </div>
+    </div>
+
+    <!-- Cloud Storage -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Cloud box SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><ellipse cx="16" cy="19" rx="9" ry="5"/><rect x="11" y="22" width="10" height="3" rx="1.5"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Cloud Storage</div>
+        <p>I store, retrieve, and secure petabytes of data—because the cloud should keep data dry, not developers waiting!</p>
+      </div>
+    </div>
+
+    <!-- ETL -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Funnel SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><polygon points="6,6 26,6 16,22"/><rect x="15" y="22" width="2" height="6"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">ETL</div>
+        <p>My ETL jobs transform messy data into analytics gold. And yes, I document every step—because chaos shouldn’t show up in production.</p>
+      </div>
+    </div>
+
+    <!-- Data Warehousing -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <!-- Warehouse SVG -->
+        <svg width="38" height="38" fill="#00e5ff" viewBox="0 0 32 32"><rect x="8" y="14" width="16" height="12"/><polygon points="4,14 16,4 28,14"/></svg>
+      </div>
+      <div class="skill-info">
+        <div class="skill-title">Data Warehousing</div>
+        <p>I architect data warehouses sturdy enough to survive quarterly reviews (and random pivots from management).</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
     <!-- ===== Contact Me ===== -->
     <section>
       <h2>Contact</h2>
